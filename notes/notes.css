@@ -71,9 +71,10 @@ a { color: inherit; }
 .article-title h1 { max-width: 900px; font-size: clamp(3rem, 6vw, 5.7rem); }
 .article-deck { max-width: 760px; margin: 0; color: var(--muted); font-size: 1.18rem; line-height: 1.85; }
 .article section { padding: 58px 0; border-bottom: 1px solid var(--line); }
-.article section h2 { margin: 0 0 26px; font-size: clamp(1.8rem, 3.5vw, 3rem); letter-spacing: -0.045em; }
+.article section h2, .article > h2 { margin: 0 0 26px; font-size: clamp(1.8rem, 3.5vw, 3rem); letter-spacing: -0.045em; }
+.article > h2 { margin-top: 58px; padding-top: 58px; border-top: 1px solid var(--line); }
 .article section h3 { margin: 0 0 12px; font: 700 0.72rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
-.article section > p, .article li { color: #4f534c; font-size: 1.02rem; line-height: 1.9; }
+.article section > p, .article > p, .article li { color: #4f534c; font-size: 1.02rem; line-height: 1.9; }
 .article strong { color: var(--ink); }
 .summary-box { display: grid; grid-template-columns: 0.25fr 1fr; gap: 24px; margin-top: 56px; padding: 28px !important; border: 1px solid var(--ink) !important; background: var(--paper-strong); }
 .summary-box p { margin: 0; color: var(--accent) !important; font: 0.68rem var(--mono) !important; }

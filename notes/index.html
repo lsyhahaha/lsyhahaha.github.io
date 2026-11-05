@@ -1,3 +1,7 @@
+---
+title: Notes
+permalink: /notes/
+---
 <!doctype html>
 <html lang="zh-CN">
   <head>
@@ -43,25 +47,18 @@
           <h2 id="notes-title">研究笔记</h2>
         </div>
 
-        <article class="note-card note-card-featured">
-          <div class="note-number">N / 001</div>
-          <div class="note-card-body">
-            <div class="note-meta"><span>Anthropic</span><span>Harness</span><span>Official article notes</span></div>
-            <h3><a href="/notes/anthropic-harness-design.html">长时间应用开发的 Harness 设计</a></h3>
-            <p>从 Planner–Generator–Evaluator、Sprint Contract、上下文治理和真实环境验收，提炼长任务 Agent 的系统设计原则。</p>
-            <div class="note-footer"><time datetime="2026-11-05">2026.11.05</time><a href="/notes/anthropic-harness-design.html">阅读全文 ↗</a></div>
-          </div>
-        </article>
-
-        <article class="note-card">
-          <div class="note-number">N / 002</div>
-          <div class="note-card-body">
-            <div class="note-meta"><span>OpenAI Codex</span><span>Prompt architecture</span><span>Source analysis</span></div>
-            <h3><a href="/notes/openai-codex-prompt-architecture.html">Codex 的提示词是一套上下文控制系统</a></h3>
-            <p>基于开源仓库梳理模型基础指令、权限与工具、World State、压缩恢复和多 Agent 消息的运行时组装。</p>
-            <div class="note-footer"><time datetime="2026-11-05">2026.11.05</time><a href="/notes/openai-codex-prompt-architecture.html">阅读全文 ↗</a></div>
-          </div>
-        </article>
+        {% assign notes = site.posts | where: "section", "notes" %}
+        {% for note in notes %}
+          <article class="note-card{% if forloop.first %} note-card-featured{% endif %}">
+            <div class="note-number">N / {{ note.note_id }}</div>
+            <div class="note-card-body">
+              <div class="note-meta"><span>{{ note.organization }}</span><span>{{ note.topic }}</span><span>{{ note.evidence }}</span></div>
+              <h3><a href="{{ note.url }}">{{ note.title }}</a></h3>
+              <p>{{ note.summary }}</p>
+              <div class="note-footer"><time datetime="{{ note.date | date: '%Y-%m-%d' }}">{{ note.date | date: "%Y.%m.%d" }}</time><a href="{{ note.url }}">阅读全文 ↗</a></div>
+            </div>
+          </article>
+        {% endfor %}
       </section>
     </main>
 

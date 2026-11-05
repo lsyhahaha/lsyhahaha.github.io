@@ -1,0 +1,21 @@
+title: lsyhahaha
+description: Agent engineering notes and system-building practice.
+url: https://lsyhahaha.github.io
+lang: zh-CN
+timezone: Asia/Shanghai
+markdown: kramdown
+permalink: pretty
+strict_front_matter: true
+collections_dir: notes
+
+exclude:
+  - README.md
+  - notes/README.md
+
+defaults:
+  - scope:
+      path: "notes/_posts"
+      type: posts
+    values:
+      layout: note
+      section: notes

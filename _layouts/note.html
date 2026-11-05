@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ page.summary | default: page.title | escape }}" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+    />
+    <title>{{ page.title | escape }} — Notes</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/notes/notes.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#article">跳到正文</a>
+    <header class="notes-header">
+      <a class="notes-brand" href="/" aria-label="返回个人主页">L<span>/</span>H</a>
+      <nav aria-label="笔记导航">
+        <a href="/">Home</a><a href="/notes/">All Notes</a><a href="https://github.com/lsyhahaha" rel="me noreferrer">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main id="article" class="article-layout">
+      <aside class="article-rail" aria-label="文章元信息">
+        <p>N / {{ page.note_id }}</p>
+        <dl>
+          <dt>Evidence</dt><dd>{{ page.evidence }}</dd>
+          <dt>Topic</dt><dd>{{ page.topic }}</dd>
+          <dt>Updated</dt><dd>{{ page.date | date: "%Y.%m.%d" }}</dd>
+        </dl>
+        {% if page.source %}<a href="{{ page.source }}" rel="noreferrer">Original source ↗</a>{% endif %}
+      </aside>
+
+      <article class="article">
+        <header class="article-title">
+          <p class="kicker">{{ page.organization }} / {{ page.topic }}</p>
+          <h1>{{ page.display_title | default: page.title }}</h1>
+          <p class="article-deck">{{ page.summary }}</p>
+        </header>
+
+        {{ content }}
+
+        <footer class="article-footer">
+          <a href="/notes/">← 返回全部笔记</a>
+          <a href="{{ page.source }}" rel="noreferrer">查看原始来源 ↗</a>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>
