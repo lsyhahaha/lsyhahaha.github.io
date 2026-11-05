@@ -272,7 +272,7 @@ footer { display: flex; justify-content: space-between; gap: 24px; padding: 30px
 @media (max-width: 620px) {
   .site-header, .hero, .section { width: min(calc(100% - 32px), var(--max-width)); }
   .site-header { padding: 20px 0; }
-  nav a:not(:last-child) { display: none; }
+  .site-header nav a[href^="#"] { display: none; }
   .hero { gap: 60px; padding: 64px 0 80px; }
   h1 { font-size: clamp(2.8rem, 12vw, 3.5rem); line-height: 0.98; }
   h1 em { display: block; }
