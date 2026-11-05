@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="lsyhahaha 的个人技术主页，关注 Agent Runtime、Coding Agent、可观测性与安全边界。"
+    />
+    <meta name="theme-color" content="#f2f0e9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121412" media="(prefers-color-scheme: dark)" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+    />
+    <meta property="og:title" content="lsyhahaha — Agent Engineer" />
+    <meta
+      property="og:description"
+      content="Building local-first agents with explicit boundaries, observable execution, and recoverable state."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lsyhahaha.github.io/" />
+    <title>lsyhahaha — Agent Engineer</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+
+    <header class="site-header" aria-label="网站导航">
+      <a class="brand" href="#top" aria-label="返回首页">L<span>/</span>H</a>
+      <nav aria-label="主要导航">
+        <a href="#work">Work</a>
+        <a href="#principles">Principles</a>
+        <a href="https://github.com/lsyhahaha" rel="me noreferrer">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Agent Engineer · Shanghai</p>
+          <h1 id="hero-title">让 Agent 的能力<br />可执行，<em>也可解释。</em></h1>
+          <p class="hero-intro">
+            我关注 Agent Runtime、Coding Agent 与 Harness 工程：把模型调用、工具执行、权限边界、状态恢复和可观测性，组合成可验证的系统。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">查看项目</a>
+            <a class="button button-quiet" href="https://github.com/lsyhahaha" rel="me noreferrer">GitHub Profile ↗</a>
+          </div>
+        </div>
+
+        <div class="runtime-card reveal" aria-label="Agent 运行时结构示意">
+          <div class="runtime-bar">
+            <span></span><span></span><span></span>
+            <p>runtime.trace</p>
+          </div>
+          <div class="runtime-body">
+            <p><span class="line-no">01</span><span class="token-muted">task</span> <span class="token-value">accepted</span></p>
+            <p><span class="line-no">02</span><span class="token-muted">policy</span> boundaries.checked</p>
+            <p><span class="line-no">03</span><span class="token-muted">model</span> reasoning.stream</p>
+            <p><span class="line-no">04</span><span class="token-muted">tool</span> <span class="token-accent">read_file</span></p>
+            <p><span class="line-no">05</span><span class="token-muted">evidence</span> attached</p>
+            <p><span class="line-no">06</span><span class="token-muted">state</span> checkpointed</p>
+            <p class="runtime-result"><span class="line-no">07</span>✓ outcome verified</p>
+          </div>
+          <div class="runtime-footer">
+            <span>observable</span><span>bounded</span><span>recoverable</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="statement reveal" aria-label="工程主张">
+        <p>模型负责生成可能性，工程系统负责约束后果。</p>
+      </section>
+
+      <section id="work" class="section projects" aria-labelledby="work-title">
+        <div class="section-heading reveal">
+          <p class="section-index">01 / SELECTED WORK</p>
+          <h2 id="work-title">正在构建</h2>
+          <p>公开仓库中的工程实践与设计探索。项目描述以当前可见实现为准，不把路线图当作成果。</p>
+        </div>
+
+        <div class="project-grid">
+          <a class="project-card project-card-featured reveal" href="https://github.com/lsyhahaha/agent-desktop" aria-label="查看 Agent Desktop 仓库">
+            <div class="project-meta">
+              <span>01</span>
+              <span class="project-status">ACTIVE EXPLORATION</span>
+            </div>
+            <div class="project-content">
+              <p class="project-kicker">LOCAL-FIRST CODING AGENT</p>
+              <h3>Agent Desktop</h3>
+              <p>
+                基于 Electron、React 与 TypeScript 的本地 Coding Agent 原型，探索模型流式对话、项目读取、受控命令执行、执行时间线与本地状态持久化。
+              </p>
+            </div>
+            <div class="project-tags" aria-label="项目技术标签">
+              <span>Electron</span><span>TypeScript</span><span>React</span><span>SQLite</span>
+            </div>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="project-card reveal" href="https://github.com/lsyhahaha/Peano" aria-label="查看 Peano 仓库">
+            <div class="project-meta"><span>02</span><span>RUNTIME</span></div>
+            <div class="project-content">
+              <p class="project-kicker">AGENT RUNTIME</p>
+              <h3>Peano</h3>
+              <p>从少量核心原语出发，探索 Agent Runtime 的最小结构与职责边界。</p>
+            </div>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="project-card reveal" href="https://github.com/lsyhahaha/agent-operating-system" aria-label="查看 Agent Operating System 仓库">
+            <div class="project-meta"><span>03</span><span>SYSTEM DESIGN</span></div>
+            <div class="project-content">
+              <p class="project-kicker">ARCHITECTURE EXPLORATION</p>
+              <h3>Agent Operating System</h3>
+              <p>围绕企业 Agent 的治理、调度和工程基础设施进行系统设计探索。</p>
+            </div>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="principles" class="section principles" aria-labelledby="principles-title">
+        <div class="section-heading reveal">
+          <p class="section-index">02 / ENGINEERING PRINCIPLES</p>
+          <h2 id="principles-title">把不确定性<br />关进系统边界</h2>
+        </div>
+        <ol class="principle-list">
+          <li class="reveal">
+            <span class="principle-number">01</span>
+            <div><h3>Explicit boundaries</h3><p>权限、预算与工具能力必须显式；高风险动作不能依赖模型“自觉”。</p></div>
+          </li>
+          <li class="reveal">
+            <span class="principle-number">02</span>
+            <div><h3>Evidence over appearance</h3><p>执行完成不等于任务正确。结论、变更与验收证据需要能够关联和复查。</p></div>
+          </li>
+          <li class="reveal">
+            <span class="principle-number">03</span>
+            <div><h3>Failure is a state</h3><p>超时、取消、中断和外部调用失败是正常状态，必须有明确语义与恢复路径。</p></div>
+          </li>
+          <li class="reveal">
+            <span class="principle-number">04</span>
+            <div><h3>Local first, least privilege</h3><p>数据优先留在本地，能力按需开放；便利性不能成为扩大攻击面的理由。</p></div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="closing reveal" aria-labelledby="closing-title">
+        <p class="section-index">03 / NEXT</p>
+        <h2 id="closing-title">持续研究 Agent<br />如何成为可靠的软件系统。</h2>
+        <a href="https://github.com/lsyhahaha" rel="me noreferrer">Follow the work on GitHub <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year">2026</span> lsyhahaha</p>
+      <p>Built as a static site. No tracking.</p>
+    </footer>
+  </body>
+</html>
