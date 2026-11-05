@@ -199,6 +199,45 @@ h1 em { color: var(--accent); font-family: Georgia, serif; font-weight: 400; }
 .project-tags span { padding: 6px 9px; border: 1px solid currentColor; font: 0.62rem var(--mono); text-transform: uppercase; }
 .project-arrow { position: absolute; right: 30px; bottom: 28px; font-size: 1.5rem; }
 
+/* 研究区使用深色长文版式，将来源类型与工程推论在视觉上明确分层。 */
+.research-section { padding: 140px 0; background: var(--surface-strong); color: #eef0e9; }
+.research-shell { width: min(calc(100% - 48px), var(--max-width)); margin: 0 auto; }
+.research-heading { display: grid; grid-template-columns: 0.5fr 1.2fr 0.8fr; gap: 32px; align-items: start; margin-bottom: 80px; }
+.research-heading h2 { margin: -10px 0 0; font-size: clamp(2.6rem, 4.4vw, 4.8rem); line-height: 0.98; letter-spacing: -0.065em; }
+.research-heading h2 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; }
+.research-heading > p:last-child { margin: 0; color: #a6ada3; line-height: 1.8; }
+.research-list { border-top: 1px solid #343a33; }
+.research-note { display: grid; grid-template-columns: 0.5fr 2fr; gap: 32px; padding: 72px 0; border-bottom: 1px solid #343a33; }
+.research-note-meta { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; color: #737b71; font: 0.65rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.evidence-tag { padding: 7px 9px; border: 1px solid var(--lime); color: var(--lime); }
+.evidence-tag-code { border-color: #ff8068; color: #ff8068; }
+.evidence-tag-synthesis { border-color: #d7ddd2; color: #d7ddd2; }
+.research-note-body { max-width: 880px; }
+.research-note-index { margin: 0 0 18px; color: #646c62; font: 0.68rem var(--mono); letter-spacing: 0.08em; }
+.research-note h3 { margin: 0 0 28px; font-size: clamp(2rem, 4.4vw, 4.4rem); line-height: 1.02; letter-spacing: -0.055em; }
+.research-lead { max-width: 780px; margin: 0 0 34px; color: #c2c8be; font-size: clamp(1.05rem, 1.6vw, 1.28rem); line-height: 1.8; }
+.research-note ul { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 32px; margin: 0; padding: 0; list-style: none; }
+.research-note ul li { padding: 18px 0; border-top: 1px solid #30362f; color: #aeb5aa; line-height: 1.7; }
+.research-note ul strong { color: #eef0e9; }
+.research-caveat { display: grid; grid-template-columns: 120px 1fr; gap: 20px; margin: 32px 0; padding: 22px 24px; border-left: 3px solid var(--accent); background: #1c201c; }
+.research-caveat span { color: #ff8068; font: 0.66rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.research-caveat p { margin: 0; color: #9ca39a; line-height: 1.7; }
+.text-link { display: inline-flex; gap: 14px; border-bottom: 1px solid var(--lime); padding-bottom: 7px; color: var(--lime); font: 0.72rem var(--mono); text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; }
+.text-link:hover { color: #eef0e9; border-color: #eef0e9; }
+.prompt-stack { display: grid; grid-template-columns: repeat(4, 1fr); margin: 36px 0; border-top: 1px solid #343a33; border-left: 1px solid #343a33; }
+.prompt-stack div { min-height: 190px; padding: 20px; border-right: 1px solid #343a33; border-bottom: 1px solid #343a33; }
+.prompt-stack span { color: #626a60; font: 0.66rem var(--mono); }
+.prompt-stack strong { display: block; margin-top: 38px; color: #ff8068; font: 0.72rem var(--mono); text-transform: uppercase; }
+.prompt-stack p { margin: 12px 0 0; color: #959d92; font-size: 0.88rem; line-height: 1.6; }
+.research-note-synthesis { border-bottom: 0; }
+.research-equation { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 36px 0 48px; }
+.research-equation span { padding: 13px 15px; border: 1px solid #41483f; color: var(--lime); font: 0.7rem var(--mono); text-transform: uppercase; }
+.research-equation b { color: #667064; font: 400 1rem var(--mono); }
+.research-findings { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; margin: 0; padding: 0; list-style: none; }
+.research-findings li { display: grid; grid-template-columns: 34px 1fr; gap: 14px; padding: 20px 0; border-top: 1px solid #30362f; }
+.research-findings span { color: var(--accent); font: 0.66rem var(--mono); }
+.research-findings p { margin: 0; color: #aeb5aa; line-height: 1.7; }
+
 .principles { border-top: 1px solid var(--line); }
 .principles .section-heading { grid-template-columns: 0.5fr 2fr; }
 .principle-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
@@ -224,6 +263,10 @@ footer { display: flex; justify-content: space-between; gap: 24px; padding: 30px
   .section-heading { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr; }
   .project-card-featured { grid-row: auto; min-height: 570px; }
+  .research-heading { grid-template-columns: 1fr; }
+  .research-note { grid-template-columns: 1fr; }
+  .research-note-meta { flex-direction: row; align-items: center; }
+  .prompt-stack { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 620px) {
@@ -237,6 +280,17 @@ footer { display: flex; justify-content: space-between; gap: 24px; padding: 30px
   .runtime-body { overflow-x: auto; padding-inline: 18px; }
   .runtime-footer { flex-wrap: wrap; padding-inline: 18px; }
   .section { padding: 100px 0; }
+  .research-section { padding: 100px 0; }
+  .research-shell { width: min(calc(100% - 32px), var(--max-width)); }
+  .research-note { padding: 56px 0; }
+  .research-note h3 { font-size: clamp(2rem, 10vw, 3rem); }
+  .research-note ul, .research-findings { grid-template-columns: 1fr; }
+  .research-caveat { grid-template-columns: 1fr; }
+  .prompt-stack { grid-template-columns: 1fr; }
+  .prompt-stack div { min-height: 150px; }
+  .research-equation { align-items: stretch; }
+  .research-equation span { flex: 1 1 42%; text-align: center; }
+  .research-equation b { align-self: center; }
   .project-card { min-height: 390px; padding: 28px 24px; }
   .project-card-featured { min-height: 540px; }
   .principles .section-heading, .principle-list li { grid-template-columns: 1fr; gap: 18px; }
