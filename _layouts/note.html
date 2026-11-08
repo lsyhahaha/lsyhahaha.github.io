@@ -9,6 +9,7 @@
       content="default-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
     />
     <title>{{ page.title | escape }} — Notes</title>
+    <script src="/theme.js"></script>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/notes/notes.css" />
   </head>
@@ -18,29 +19,26 @@
       <a class="notes-brand" href="/" aria-label="返回个人主页">L<span>/</span>H</a>
       <nav aria-label="笔记导航">
         <a href="/">Home</a><a href="/notes/">All Notes</a><a href="https://github.com/lsyhahaha" rel="me noreferrer">GitHub ↗</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="切换主题" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span><span data-theme-label>Theme</span>
+        </button>
       </nav>
     </header>
 
-    <main id="article" class="article-layout">
-      <aside class="article-rail" aria-label="文章元信息">
-        <p>N / {{ page.note_id }}</p>
-        <dl>
-          <dt>Category</dt><dd><a class="article-category" href="/notes/#{{ page.category | slugify }}">{{ page.category }}</a></dd>
-          <dt>Evidence</dt><dd>{{ page.evidence }}</dd>
-          <dt>Topic</dt><dd>{{ page.topic }}</dd>
-          <dt>Updated</dt><dd>{{ page.date | date: "%Y.%m.%d" }}</dd>
-        </dl>
-        {% if page.source %}<a href="{{ page.source }}" rel="noreferrer">Original source ↗</a>{% endif %}
-      </aside>
-
+    <main id="article" class="article-shell">
       <article class="article">
         <header class="article-title">
-          <p class="kicker">{{ page.organization }} / {{ page.topic }}</p>
-          <h1>{{ page.display_title | default: page.title }}</h1>
-          <p class="article-deck">{{ page.summary }}</p>
+          <h1>{{ page.title }}</h1>
+          <div class="article-meta" aria-label="文章元信息">
+            <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%b %d, %Y" }}</time>
+            <a href="/notes/#{{ page.category | slugify }}">{{ page.category }}</a>
+            {% if page.source %}<a href="{{ page.source }}" rel="noreferrer">Original source ↗</a>{% endif %}
+          </div>
         </header>
 
-        {{ content }}
+        <div class="article-content">
+          {{ content }}
+        </div>
 
         <footer class="article-footer">
           <a href="/notes/">← 返回全部笔记</a>

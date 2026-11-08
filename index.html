@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="lsyhahaha 的个人技术主页，关注 Agent Runtime、Coding Agent、可观测性与安全边界。"
+      content="lsyhahaha 的个人技术主页：从机器学习、深度学习与 LLM 基础出发，研究 Agent Runtime、Coding Agent、可观测性与安全边界。"
     />
     <meta name="theme-color" content="#f2f0e9" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#121412" media="(prefers-color-scheme: dark)" />
@@ -18,11 +18,12 @@
     <meta property="og:title" content="lsyhahaha — Agent Engineer" />
     <meta
       property="og:description"
-      content="Building local-first agents with explicit boundaries, observable execution, and recoverable state."
+      content="Learning from machine learning foundations to LLM systems, and building local-first agents with explicit boundaries, observable execution, and recoverable state."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lsyhahaha.github.io/" />
     <title>lsyhahaha — Agent Engineer</title>
+    <script src="/theme.js"></script>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
@@ -38,6 +39,9 @@
         <a href="/notes/">Notes</a>
         <a href="#principles">Principles</a>
         <a href="https://github.com/lsyhahaha" rel="me noreferrer">GitHub ↗</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="切换主题" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span><span data-theme-label>Theme</span>
+        </button>
       </nav>
     </header>
 
@@ -47,7 +51,7 @@
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Agent Engineer · Shanghai</p>
           <h1 id="hero-title">让 Agent 的能力<br />可执行，<em>也可解释。</em></h1>
           <p class="hero-intro">
-            我关注 Agent Runtime、Coding Agent 与 Harness 工程：把模型调用、工具执行、权限边界、状态恢复和可观测性，组合成可验证的系统。
+            我沿着机器学习、深度学习与 LLM 的基础脉络持续学习，重点研究 Agent Runtime、Coding Agent 与 Harness 工程：把模型调用、工具执行、权限边界、状态恢复和可观测性，组合成可验证的系统。
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#work">查看项目</a>
@@ -131,7 +135,7 @@
         <div class="notes-preview-copy reveal">
           <p class="section-index">02 / NOTES</p>
           <h2 id="research-title">阅读、拆解，<br /><em>形成自己的判断。</em></h2>
-          <p>文章与源码调研不再堆在主页。每篇笔记单独记录原始观点、证据边界、我的理解与工程启发。</p>
+          <p>从机器学习、深度学习和 LLM 基础，到 Agent 系统工程。每篇笔记单独记录原始观点、推导过程、证据边界与工程启发。</p>
           <nav class="notes-category-links" aria-label="技术笔记分类">
             {% for category in site.data.note_categories %}
               <a href="/notes/#{{ category.id }}">{{ category.name }}</a>
@@ -140,12 +144,19 @@
           <a class="notes-preview-link" href="/notes/">进入全部笔记 <span aria-hidden="true">↗</span></a>
         </div>
         <div class="notes-preview-latest reveal" aria-label="最新笔记">
-          <p>LATEST / 002</p>
-          <a href="/notes/openai-codex-prompt-architecture.html">
-            <span>OpenAI Codex · Source analysis</span>
-            <strong>提示词不是一段文本，而是上下文控制系统。</strong>
-            <small>2026.11.05 · 阅读笔记 ↗</small>
-          </a>
+          {% assign notes = site.posts | where: "section", "notes" %}
+          {% assign latest_note = notes | first %}
+          {% if latest_note %}
+            <p>LATEST / {{ latest_note.note_id }}</p>
+            <a href="{{ latest_note.url }}">
+              <span>{{ latest_note.organization }} · {{ latest_note.topic }}</span>
+              <strong>{{ latest_note.title }}</strong>
+              <small>{{ latest_note.date | date: "%Y.%m.%d" }} · 阅读笔记 ↗</small>
+            </a>
+          {% else %}
+            <p>LATEST</p>
+            <div class="notes-preview-empty">笔记正在整理中。</div>
+          {% endif %}
         </div>
       </section>
 
@@ -176,7 +187,7 @@
 
       <section class="closing reveal" aria-labelledby="closing-title">
         <p class="section-index">04 / NEXT</p>
-        <h2 id="closing-title">持续研究 Agent<br />如何成为可靠的软件系统。</h2>
+        <h2 id="closing-title">从学习模型原理，<br />到构建可靠的 Agent 系统。</h2>
         <a href="https://github.com/lsyhahaha" rel="me noreferrer">Follow the work on GitHub <span aria-hidden="true">↗</span></a>
       </section>
     </main>
