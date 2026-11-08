@@ -6,6 +6,7 @@ permalink: /notes/openai-codex-prompt-architecture.html
 note_id: "002"
 organization: OpenAI Codex
 topic: Source Analysis
+category: Agent
 evidence: Public source analysis
 source: https://github.com/openai/codex
 summary: "生产级 Prompt Engineering 的重点在运行时组装、优先级、状态投影和生命周期管理，而不只是写好一段 System Prompt。"

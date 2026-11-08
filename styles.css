@@ -204,6 +204,9 @@ h1 em { color: var(--accent); font-family: Georgia, serif; font-weight: 400; }
 .notes-preview h2 { margin: 24px 0 28px; font-size: clamp(2.6rem, 5vw, 5.2rem); line-height: 0.98; letter-spacing: -0.065em; }
 .notes-preview h2 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400; }
 .notes-preview-copy > p:not(.section-index) { max-width: 620px; margin: 0; color: #a6ada3; line-height: 1.8; }
+.notes-category-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 30px; }
+.notes-category-links a { padding: 8px 10px; border: 1px solid #394038; color: #a6ada3; font: 0.6rem var(--mono); text-decoration: none; text-transform: uppercase; }
+.notes-category-links a:hover { border-color: var(--lime); color: var(--lime); }
 .notes-preview-link { display: inline-flex; gap: 14px; margin-top: 38px; border-bottom: 1px solid var(--lime); padding-bottom: 7px; color: var(--lime); font: 0.72rem var(--mono); text-decoration: none; text-transform: uppercase; }
 .notes-preview-latest { padding: 30px; border: 1px solid #394038; background: #1a1e1a; }
 .notes-preview-latest > p { margin: 0 0 46px; color: #656d63; font: 0.64rem var(--mono); }

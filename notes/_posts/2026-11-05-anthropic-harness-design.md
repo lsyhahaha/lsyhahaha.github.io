@@ -6,6 +6,7 @@ permalink: /notes/anthropic-harness-design.html
 note_id: "001"
 organization: Anthropic
 topic: Harness Engineering
+category: Agent
 evidence: Official article notes
 source: https://www.anthropic.com/research/harness-design-long-running-apps
 summary: "长任务不能只依赖模型持续生成代码。规划、实现和验收需要明确的职责边界，并由真实环境中的证据决定是否完成。"

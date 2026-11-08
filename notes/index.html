@@ -32,11 +32,17 @@ permalink: /notes/
         <p class="kicker">FIELD NOTES / AGENT ENGINEERING</p>
         <h1>把调研沉淀成<br /><em>可复用的工程判断。</em></h1>
         <p class="notes-intro">
-          这里记录 Agent Runtime、Harness、提示词架构与可靠 AI 系统的研究笔记。每篇笔记尽量区分官方事实、源码观察、推论与尚未验证的边界。
+          这里按机器学习、深度学习、LLM 与 Agent 四条脉络整理技术笔记。每篇笔记尽量区分官方事实、源码观察、推论与尚未验证的边界。
         </p>
+        <nav class="category-nav" aria-label="笔记分类">
+          {% for category in site.data.note_categories %}
+            <a href="#{{ category.id }}">{{ category.name }}</a>
+          {% endfor %}
+        </nav>
+        {% assign notes = site.posts | where: "section", "notes" %}
         <div class="notes-stats" aria-label="笔记统计">
-          <div><strong>02</strong><span>Published notes</span></div>
-          <div><strong>04</strong><span>Evidence levels</span></div>
+          <div><strong>{{ notes.size | prepend: "0" | slice: -2, 2 }}</strong><span>Published notes</span></div>
+          <div><strong>04</strong><span>Knowledge tracks</span></div>
           <div><strong>∞</strong><span>Questions remain</span></div>
         </div>
       </section>
@@ -47,17 +53,30 @@ permalink: /notes/
           <h2 id="notes-title">研究笔记</h2>
         </div>
 
-        {% assign notes = site.posts | where: "section", "notes" %}
-        {% for note in notes %}
-          <article class="note-card{% if forloop.first %} note-card-featured{% endif %}">
-            <div class="note-number">N / {{ note.note_id }}</div>
-            <div class="note-card-body">
-              <div class="note-meta"><span>{{ note.organization }}</span><span>{{ note.topic }}</span><span>{{ note.evidence }}</span></div>
-              <h3><a href="{{ note.url }}">{{ note.title }}</a></h3>
-              <p>{{ note.summary }}</p>
-              <div class="note-footer"><time datetime="{{ note.date | date: '%Y-%m-%d' }}">{{ note.date | date: "%Y.%m.%d" }}</time><a href="{{ note.url }}">阅读全文 ↗</a></div>
-            </div>
-          </article>
+        {% for category in site.data.note_categories %}
+          {% assign category_notes = notes | where: "category", category.name %}
+          <section class="category-section" id="{{ category.id }}" aria-labelledby="{{ category.id }}-title">
+            <header class="category-heading">
+              <p>TRACK / {{ forloop.index | prepend: "0" }}</p>
+              <h3 id="{{ category.id }}-title">{{ category.name }}</h3>
+              <span>{{ category_notes.size }} 篇</span>
+            </header>
+            {% if category_notes.size > 0 %}
+              {% for note in category_notes %}
+                <article class="note-card{% if forloop.first %} note-card-featured{% endif %}">
+                  <div class="note-number">N / {{ note.note_id }}</div>
+                  <div class="note-card-body">
+                    <div class="note-meta"><span>{{ note.organization }}</span><span>{{ note.topic }}</span><span>{{ note.evidence }}</span></div>
+                    <h4><a href="{{ note.url }}">{{ note.title }}</a></h4>
+                    <p>{{ note.summary }}</p>
+                    <div class="note-footer"><time datetime="{{ note.date | date: '%Y-%m-%d' }}">{{ note.date | date: "%Y.%m.%d" }}</time><a href="{{ note.url }}">阅读全文 ↗</a></div>
+                  </div>
+                </article>
+              {% endfor %}
+            {% else %}
+              <p class="category-empty">暂无文章，正在整理。</p>
+            {% endif %}
+          </section>
         {% endfor %}
       </section>
     </main>

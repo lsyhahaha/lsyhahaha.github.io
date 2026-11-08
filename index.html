@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="zh-CN">
   <head>
@@ -130,6 +132,11 @@
           <p class="section-index">02 / NOTES</p>
           <h2 id="research-title">阅读、拆解，<br /><em>形成自己的判断。</em></h2>
           <p>文章与源码调研不再堆在主页。每篇笔记单独记录原始观点、证据边界、我的理解与工程启发。</p>
+          <nav class="notes-category-links" aria-label="技术笔记分类">
+            {% for category in site.data.note_categories %}
+              <a href="/notes/#{{ category.id }}">{{ category.name }}</a>
+            {% endfor %}
+          </nav>
           <a class="notes-preview-link" href="/notes/">进入全部笔记 <span aria-hidden="true">↗</span></a>
         </div>
         <div class="notes-preview-latest reveal" aria-label="最新笔记">

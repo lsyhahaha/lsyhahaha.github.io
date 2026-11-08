@@ -25,6 +25,7 @@
       <aside class="article-rail" aria-label="文章元信息">
         <p>N / {{ page.note_id }}</p>
         <dl>
+          <dt>Category</dt><dd><a class="article-category" href="/notes/#{{ page.category | slugify }}">{{ page.category }}</a></dd>
           <dt>Evidence</dt><dd>{{ page.evidence }}</dd>
           <dt>Topic</dt><dd>{{ page.topic }}</dd>
           <dt>Updated</dt><dd>{{ page.date | date: "%Y.%m.%d" }}</dd>
